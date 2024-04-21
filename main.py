@@ -34,7 +34,7 @@ def summarize_core_claims(user_q):
 
 def get_search_terms(texts):
     find_search_query = texts
-    response = model.generate_content(f"Youre an responsible assistant, you need to output the search query to find relevant articles related to the given text data, be direct, short but include related keywords, only output search query nothing else. heres the data: {find_search_query}")
+    response = model.generate_content(f"Youre an responsible assistant, you need to output the search query to find relevant articles related to the given text data, be direct, but include related keywords, only output search query nothing else. heres the data: {find_search_query}")
     st.write(response.text)
     return response.text
 
@@ -42,12 +42,9 @@ def get_search_terms(texts):
 def search_find_relevant_articles(q):
      query = q
      links = []
-     st.write("this ran")
      for result in search(query,5):
           links.append(result)
-          st.write(result)
 
-          
      return links     
 
 
